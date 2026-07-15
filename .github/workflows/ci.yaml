@@ -19,7 +19,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '22'
+
+      - name: Upgrade npm to 10
+        run: npm install -g npm@10
 
       - name: Install dependencies
         run: npm install
@@ -40,7 +43,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '22'
+
+      - name: Upgrade npm to 10
+        run: npm install -g npm@10
 
       - name: Restore node_modules
         uses: actions/cache/restore@v3
@@ -64,7 +70,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '22'
+
+      - name: Upgrade npm to 10
+        run: npm install -g npm@10
 
       - name: Restore node_modules
         uses: actions/cache/restore@v3
@@ -78,7 +87,7 @@ jobs:
         run: npm run test
 
   build:
-    needs: [lint]
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -87,7 +96,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '22'
+
+      - name: Upgrade npm to 10
+        run: npm install -g npm@10
 
       - name: Restore node_modules
         uses: actions/cache/restore@v3

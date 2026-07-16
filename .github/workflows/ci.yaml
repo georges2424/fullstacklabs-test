@@ -108,4 +108,6 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Build project
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
         run: npm run build
